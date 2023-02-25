@@ -1,0 +1,10 @@
+#+TITLE: Homework 1
+#+AUTHOR: Yusheng Zhao
+#+OPTIONS: toc: nil
+
+* Problem 1
+** A
+- Name: SPERM WHALE MYOGLOBIN F46V N-BUTYL ISOCYANIDE AT PH 9.0
+- ID: 101M
+** B
+** C
