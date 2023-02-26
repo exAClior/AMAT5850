@@ -6,5 +6,8 @@
 ** A
 - Name: SPERM WHALE MYOGLOBIN F46V N-BUTYL ISOCYANIDE AT PH 9.0
 - ID: 101M
-** B
-** C
+** B and C
+1) [[./sticks.png][Illustration of 101M with sticks and focused on one amino acid]]
+2) [[./lines.png][Illustration of 101M with lines and focused on one amino acid]]
+3) [[./ribbons.png][Illustration of ribbons style, cannot see atoms but was able to label them]]
+4) [[./surfaces.png][Illustration of surfaces, all information hidden under surfaces]]

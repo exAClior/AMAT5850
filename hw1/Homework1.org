@@ -1,0 +1,18 @@
+#+TITLE: Homework 1
+#+AUTHOR: Yusheng Zhao
+#+OPTIONS: toc: nil
+
+* Problem 1
+- Name: SPERM WHALE MYOGLOBIN F46V N-BUTYL ISOCYANIDE AT PH 9.0
+- ID: 101M
+ #+CAPTION: Illustration of molecule with sticks, atoms names of one amino acid labeled.
+ [[./sticks.png]]
+
+ #+CAPTION: Illustration of molecule with lines, atoms of one amino acid labelled
+ [[./lines.png]]
+
+ #+CAPTION: Illustration of molecule with surfaces, atoms and names hidden under surface
+ [[./surfaces.png]]
+
+#+CAPTION: Illustration of molecule with ribbons, atoms hidden but labels are in view.
+[[./ribbons.png]]
