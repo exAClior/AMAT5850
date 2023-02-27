@@ -16,3 +16,19 @@
 
 #+CAPTION: Illustration of molecule with ribbons, atoms hidden but labels are in view.
 [[./ribbons.png]]
+
+* Problem 2
+Since \(\beta \equiv 1/(k_{B}T)\), \(\partial \beta = -
+\frac{1}{k_{B}T^{2}}\partial T\).
+\begin{align}
+c_{v}    & \equiv \frac{\partial <U>}{\partial T} \\
+        & =  - \frac{1}{k_{B}T^{2}} \frac{\partial <U>}{\partial \beta} \\
+        & =  \frac{1}{k_{B}T^{2}} \frac{\partial }{\partial \beta} (\frac{\partial ln(Z)}{\partial \beta}) \\
+        & =  \frac{1}{k_{B}T^{2}} \frac{\partial }{\partial \beta} (\frac{\partial Z /\partial \beta}{Z}) \\
+ & = \frac{1}{k_{B}T^{2}} \frac{\frac{\partial^{2}Z}{\partial\beta^{2}} Z - (\frac{\partial Z}{\partial\beta})^{2}}{Z^{2}} \\
+ & = \frac{1}{k_{B}T^{2}} (\frac{\frac{\partial^{2}Z}{\partial\beta^{2}}}{Z} - (\frac{\partial Z}{\partial \beta} / Z)^{2}) \\
+& = \frac{1}{k_{B}T^{2}} (<U^{2}> - <U>^{2})
+\end{align}
+
+For the last step, we used the fact that \(Z = \sum e^{-U\beta}\), taking
+derivative with respect to $\beta$ twice will bring down $U^{2}$.
