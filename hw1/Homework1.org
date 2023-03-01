@@ -32,3 +32,10 @@ c_{v}    & \equiv \frac{\partial <U>}{\partial T} \\
 
 For the last step, we used the fact that \(Z = \sum e^{-U\beta}\), taking
 derivative with respect to $\beta$ twice will bring down $U^{2}$.
+
+* Problem 3
+
+* Problem 4
+- Need to lookup in specific force field
+* Problem 5
+- Need to lookup in specific force field
