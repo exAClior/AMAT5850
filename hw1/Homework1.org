@@ -34,8 +34,66 @@ For the last step, we used the fact that \(Z = \sum e^{-U\beta}\), taking
 derivative with respect to $\beta$ twice will bring down $U^{2}$.
 
 * Problem 3
+#+begin_src julia
+begin
+using Plots
+epsilon_ij = 1.0
+delta_ij = 4.0
+V(r) = 4 * epsilon_ij * ((delta_ij/r)^12 - (delta_ij/r)^6)
+r = 4:0.01:10
+vs = V.(r)
+plot(r,vs,title="L-J Potential",label="L-J function")
+xlabel!("r\_ij Å")
+ylabel!("V kJ/mol")
+savefig("./potential.png")
+end
+#+end_src
+
+[[./potential.png]]
+
+#+begin_src julia :exports both :results output
+F(r) = -98304.0 *(r^6 - 8192)/r^13
+println(F(4*(2)^(1/6) + 0.5))
+println(F(4*(2)^(1/6) - 0.5))
+#+end_src
+
+#+RESULTS:
+: F (generic function with 1 method)
+: -0.5989510746437929
+: 6.2953600398067096
+
+** a
+- The global minimum is at \(\frac{\partial V(r_{ij})}{\partial r_{ij}} = 0\).
+  Solving this equation we get \(r_{ij} = 4*2^{1/6} \approx 4.4898 \)
+- By definition of the force \(F = - \frac{\partial V}{\partial r}\), there
+  should be no force at \(r_{m}\)
+- When \(r_{ij} = r_{m} + 0.5 \), \(F = - \frac{\partial V}{\partial r} =
+  -0.5989510746437929\), it's attractive force, they should pull towards each
+  other.
+- When \(r_{ij} = r_{m} - 0.5 \), \(F = - \frac{\partial V}{\partial r} =
+  6.2953600398067096\), it's repulsive force, they should push them away from
+  each other.
+** b
+The mixing rule says: \(\sigma_{AB} = 1/2 (\sigma_{A} + \sigma_{B}) = 4 \)
+angstrom. And, \(\epsilon_{AB} = \sqrt{\epsilon_{A}\epsilon_{B}} \approx 0.98
+kJ/mol\)
 
 * Problem 4
-- Need to lookup in specific force field
+** a
+- Bond terms: \(4 + 1 = 5\), 4 C-H and 1 C-C.
+- Angles: \(4 + 2\), 4 H-C-C, 2 H-C-H
+- Dihedrals: \(4\), 4 H-C-C-H
+** b
+- For a single molecule, there are \(4\) distinct pairs of hydrogen that has 1-4
+  interactions.
+- For two molecules, there are \(8 + 36\) non-bonded interactions terms. $8$
+  from 1-4 interactions, and $36$ from inter-molecular atomic interactions.
+
 * Problem 5
-- Need to lookup in specific force field
+- There are three hydrogens, so the period of the potential is $2\pi/3$.
+- The stable states occurs at \(\pi/3,\pi, 5pi/3\) angles, they are *staggered
+  conformation*
+- The un-stable states occurs at \(0, 2\pi/3, 4\pi/3, 2\pi\) angles, they are
+  *eclipsed conformation*.
+- I referenced this [[https://www.masterorganicchemistry.com/2020/02/28/staggered-vs-eclipsed-conformations-of-ethane/][website]] to answer this question.
+- [[./periodic_potential.png]]
