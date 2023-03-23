@@ -1,0 +1,27 @@
+#+TITLE: Homework 2
+#+AUTHOR: Yusheng Zhao
+
+* Problem 1
+** A
+\(F(x) = - \frac{\partial U(x)}{\partial x} = (x-1)\), at $t=0$, $x=0$ so $F= -1$.
+** B
+
+* Problem 2
+** A
+#+begin_src  julia
+using CairoMakie
+u612(x) = 4 * ((1/r^12) - (1/r^6))
+u510(x) = 4 * ((1/r^10) - (1/r^5))
+f = Figure()
+ax = Axis(f[1, 1],
+    title = "Lenord Jones Potential",
+    xlabel = "r (units)",
+    ylabel = "U(r)  (units)"
+)
+x = 1.0:0.001:10
+u1 = u612.(x)
+u2 = u510.(x)
+lines!(ax, x, u1,label="6-12 Potential")
+lines!(ax, x, u2,label="5-10 Potential")
+f
+#+end_src
