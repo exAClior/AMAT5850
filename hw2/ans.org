@@ -20,7 +20,7 @@ It was not conserved. This is because the time-step is not truly infinitesimal,
 the updated velocity position are not truly accurate. Therefore, there will be
 error in the energy calculated according to those values.
 
-* problem 2
+* Problem 2
 ** A
 #+begin_src  julia
 using CairoMakie
@@ -37,8 +37,14 @@ u1 = u612.(x)
 u2 = u510.(x)
 lin612 = lines!(ax, x, u1,label="6-12 Potential")
 lin510 = lines!(ax, x, u2,label="5-10 Potential")
-Legend(f[1, 1],
-    [lin612, sca510],
-    ["6-12 Potential", "5-10 Potential"])
+axislegend()
 save("p2.png",f)
 #+end_src
+
+** B
+
+* Problem 3
+In partition function, the probability of a state is proportional to
+\(e^{KE/k_BT}\). If you want the probability to stay the same, you need
+\(KE_{inst}/(k_{B} T_{inst}) = KE_{target}/k_{B}T_{Target}\) therefore,
+\(v_{inst}/v_{target} = \sqrt{\frac{T_{inst}}{T_{target}}}\)
