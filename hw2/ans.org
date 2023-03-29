@@ -48,3 +48,30 @@ In partition function, the probability of a state is proportional to
 \(e^{KE/k_BT}\). If you want the probability to stay the same, you need
 \(KE_{inst}/(k_{B} T_{inst}) = KE_{target}/k_{B}T_{Target}\) therefore,
 \(v_{inst}/v_{target} = \sqrt{\frac{T_{inst}}{T_{target}}}\)
+
+* Problem 4
+#+begin_src julia :exports both :results output
+begin
+    using Random, Distributions, Plots
+    n_trials = 10000
+    samples = rand(Uniform(-1,1),(2,n_trials))
+    sums = zeros(Float64,n_trials+1)
+    for ctr in 1:n_trials
+        x,y = samples[:,ctr]
+        if x^2 + y^2 <= 1
+            sums[ctr+1] = sums[ctr] + 1.0
+        else
+            sums[ctr+1] = sums[ctr]
+        end
+    end
+    #we are essentially estimating the area
+    sums ./= 1:n_trials+1
+    sums .*= 4
+    plot(1:length(sums), sums,xlabel="Steps",ylabel="Estimation",title="MC steps vs estimated value")
+    savefig("mc.png")
+    println("Estimation of pi is: $(sums[end])")
+end
+#+end_src
+I esimated $\pi$ to be $3.12888711128887$. Please see the plot below.
+
+[[./mc.png]]
