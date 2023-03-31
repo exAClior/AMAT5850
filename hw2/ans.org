@@ -57,13 +57,12 @@ the cutoff function $S(r)$ will be introduced as
 #+begin_src julia
 using CairoMakie
 function sr(r::T,rl::T,ru::T) where T
-    println(r,rl,ru)
     if r < rl
         return one(r)
     elseif r > ru
         return zero(r)
     else
-        return (ru-x)^2 * (ru^2 + 2*r - 3*rl) / (ru-rl)^3
+        return (ru-r)^2 * (ru + 2*r - 3*rl) / (ru-rl)^3
     end
 end
 u612(x) = 4 * ((1/x^12) - (1/x^6))
@@ -75,17 +74,18 @@ ax = Axis(f[1, 1],
     ylabel = "U(r)*S(r)  (units)"
 )
 x = 1.0:0.001:6
-srs =  sr.(x, 2.25, 2.5)
-u1 = u612.(x)
-u1 .*= srs
-u2 = u510.(x)
+ru = 2.5
+u1 = u612.(x) .* sr.(x, 0.9*ru, ru)
+u2 = u510.(x) .* sr.(x, 0.9*ru, ru)
 lin612 = lines!(ax, x, u1,label="Shifted 6-12 Potential")
 lin510 = lines!(ax, x, u2,label="Shifted 5-10 Potential")
 axislegend()
 save("p2_shifted.png",f)
 
 #+end_src
-
+[[.p2_shifted.png]] There should not be any efficiency difference since both
+functions are turned off at the same position $r$. In terms of accuracy, I guess
+$5-10$ L-J potential will win.
 * Problem 3
 In partition function, the probability of a state is proportional to
 \(e^{KE/k_BT}\). If you want the probability to stay the same, you need
