@@ -42,6 +42,49 @@ save("p2.png",f)
 #+end_src
 
 ** B
+According to the plot, the potential energy mainly dies out around $r = 2.5$.
+Therefore, I would assign $r_{u} = 2.5$ and $r_{l} = 0.9* r_{u} = 2.25$. Then
+the cutoff function $S(r)$ will be introduced as
+\begin{align}
+    \begin{cases}
+    S(r) = 1 ; r < r_{l} \\
+    S(r) = \frac{(r_{u}-r)^2(r^2_{u}+2r-3r_{l})}{(r_{u}-r_{l})^3} ; r_{l} < r < r_{u} \\
+    S(r) = 0; r > r_{u}
+    \end{cases}
+\end{align}
+
+** C
+#+begin_src julia
+using CairoMakie
+function sr(r::T,rl::T,ru::T) where T
+    println(r,rl,ru)
+    if r < rl
+        return one(r)
+    elseif r > ru
+        return zero(r)
+    else
+        return (ru-x)^2 * (ru^2 + 2*r - 3*rl) / (ru-rl)^3
+    end
+end
+u612(x) = 4 * ((1/x^12) - (1/x^6))
+u510(x) = 4 * ((1/x^10) - (1/x^5))
+f = Figure()
+ax = Axis(f[1, 1],
+    title = "Shifted Lenord Jones Potential",
+    xlabel = "r (units)",
+    ylabel = "U(r)*S(r)  (units)"
+)
+x = 1.0:0.001:6
+srs =  sr.(x, 2.25, 2.5)
+u1 = u612.(x)
+u1 .*= srs
+u2 = u510.(x)
+lin612 = lines!(ax, x, u1,label="Shifted 6-12 Potential")
+lin510 = lines!(ax, x, u2,label="Shifted 5-10 Potential")
+axislegend()
+save("p2_shifted.png",f)
+
+#+end_src
 
 * Problem 3
 In partition function, the probability of a state is proportional to
