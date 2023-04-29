@@ -1,0 +1,35 @@
+#+TITLE: Assignment 3
+#+AUTHOR: Yusheng Zhao
+#+OPTIONS: toc:nil
+
+
+* Problem 1
+From statistical mechanics, we know the following rule. When there is a phase
+change, some function related to the structure of the system will change
+abruptly. More specifically, you could calculate *RMSD* for the system under
+investigation. Over time, you should see a discontinuity in the plot of time
+versus *RMSD*. That's when a phase change occurred.
+
+A plot may look something like this.
+
+[[file:../../../notes/imgs/pdfs/Problem_1/20230429-112158_Screenshot 2023-04-29 at 11.21.55.png]]
+
+* Problem 2
+In a folded protein, I expect to find hydrophobic amino acids in the *innerds*
+of the structure. Conversely, I expect to find hydrophilic amino acids on the
+*outside* of the folded protein. This is basically due to the need to minimize
+energy in the folded state of a protein.
+
+- Hydrophobic Amino Acid: Alanine
+- Hydrophilic Amino Acid: Aspartic Acid
+- I have illustrated the protein: BARNASE MUTANT WITH ILE 88 REPLACED BY ALA
+  (1BRJ). In addition, I illustrated the hydrophobic amino acid, Alanine, as
+  balls. I also illustrated the hydrophilic amino acid, Aspartic Acid, as
+  surface.
+
+[[./protein.png]]
+
+* Problem 3
+
+
+* Problem 4
